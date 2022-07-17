@@ -1,112 +1,88 @@
-﻿namespace DataStructure
+﻿namespace DataStructureAlgorithem
 {
     class Program
     {
-        static void Main(String[] args)
+        public static void Main(String[] args)
         {
-            string flag = "Y";
-            while (flag == "Y" || flag == "y")
+            Console.WriteLine(" 1.Permutation\n 2.BinarySearch\n 3.InsertionSort\n 4.Bubblesort\n 5.MergeSort\n 6.Anagram\n 7.PrimeRange\n 8.PrimePalindrome\n" +
+                " 9.SearchSortGenerics\n 10.FindNumber\n 11.TaskDone\n 12.CustomMessage");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
             {
-                Console.WriteLine("Welcome To Datastructures and Algorithms");
-                Console.WriteLine("1.Permutation Using Recursion\n2.BinarySearch\n3.InsertionSort\n4.BubbleSort" +
-                    "\n5.MergeSort\n6.Anagrams\n7.PrimeNumber\n8.AnagramAndPalindromes\n9.SearchingAndSortingUsingGenerics" +
-                    "\n10.FindNumber\n11.TaskDoneByMaximumAmount\n12.CustomisedMessages");
-                Console.WriteLine("Enter Your Option");
-                int num = Convert.ToInt32(Console.ReadLine());
-                switch (num)
-                {
-                    case 1:
-                        PermutationsOfString permutationsofstring = new PermutationsOfString();
-                        permutationsofstring.permutations();
-                        break;
-                    case 2:
-                        BinarySearchProb binarysearchprob = new BinarySearchProb();
-                        binarysearchprob.binarySearch();
-                        break;
-                    case 3:
-                        InsertionSort insertionsort = new InsertionSort();
-                        insertionsort.insertionSort();
-                        break;
-                    case 4:
-                        BubbleSort bubblesort = new BubbleSort();
-                        bubblesort.bubbleSort();
-                        break;
-                    case 5:
-                        MergeSort mergesort = new MergeSort();
-                        mergesort.mergeSort();
-                        break;
-                    case 6:
-                        Anagrams anagrams = new Anagrams();
-                        anagrams.checkAnagrams();
-                        break;
-                    case 7:
-                        PrimeNumbers primenumbers = new PrimeNumbers();
-                        primenumbers.primeNumbers();
-                        break;
-                    case 8:
-                        AnagramAndPalindromeNumber anagramandpalindromenumber = new AnagramAndPalindromeNumber();
-                        anagramandpalindromenumber.anagramAndPalindrome();
-                        break;
-                    case 9:
-                        SearchingAndSortingUsingGenerics searchingandsortingusinggenerics = new SearchingAndSortingUsingGenerics();
-                        searchingandsortingusinggenerics.SearchingAndSorting();
-                        break;
-                    case 10:
-                        FindNumber findnumber = new FindNumber();
-                        findnumber.Find();
-                        findnumber.Question(12, 23);
-                        break;
-                    case 11:
-                        TaskDoneByMaximumAmount taskdonebymaximumamount = new TaskDoneByMaximumAmount();
-                        taskdonebymaximumamount.tasks();
-                        break;
-                    case 12:
-                        CustomizedMessage customizedmessage = new CustomizedMessage();
-                        customizedmessage.printMessage();
-                        break;
+                case 1:
+                    PermutationsOfString permutationsofstring = new PermutationsOfString();
+                    permutationsofstring.permutations();
+                    break;
+                case 2:
+                    BinarySearchProb binarysearchprob = new BinarySearchProb();
+                    binarysearchprob.binarySearch();
+                    break;
+                case 3:
 
-                    default:
-                        Console.WriteLine("-------Enter the valid option---");
-                        break;
-                }
-                Console.WriteLine("\nDo you want to continue");
-                flag = Console.ReadLine();
+                    String[] arr1 = { "Bridgelabsz", "I", "from", "am" };
+                    int n = arr1.Length;
+
+                    // Function to perform sorting
+                    InsertionSort.sort(arr1, n);
+                    // Calling the function to print result
+                    break;
+                case 4:
+                    int[] arr2 = { 64, 34, 25, 12, 22, 11, 90 };
+                    BubbleSort.bubbleSort(arr2);
+                    Console.WriteLine("Sorted array");
+                    BubbleSort.printArray(arr2);
+                    break;
+                case 5:
+                    int[] arr3 = { 12, 11, 13, 5, 6, 7 };
+                    Console.WriteLine("Given Array");
+                    MergeSort.printArray(arr3);
+                    MergeSort ob = new MergeSort();
+                    ob.sort(arr3, 0, arr3.Length - 1);
+                    Console.WriteLine("\nSorted array");
+                    MergeSort.printArray(arr3);
+                    break;
+                case 6:
+                    string str1 = "heart";
+                    string str2 = "earth";
+
+                    // Function call
+                    if (Anagram.areAnagram(str1, str2))
+                        Console.Write("The two strings are " +
+                                      "anagram of each other");
+                    else
+                        Console.Write("The two strings are " +
+                                      "not anagram of each other");
+                    break;
+                case 7:
+                    PrimeRange.PrimeNumber();
+                    break;
+                case 8:
+                    PrimePalindrome.countPal(100, 1000);
+                    break;
+                case 9:
+                    SearchingAndSortingUsingGenerics searchingandsortingusinggenerics = new SearchingAndSortingUsingGenerics();
+                    searchingandsortingusinggenerics.SearchingAndSorting();
+                    break;
+                case 10:
+                    FindNumber1 findnumber = new FindNumber1();
+                    FindNumber1.Find();
+                    break;
+                case 11:
+                    TaskDoneByMaximumAmount taskdonebymaximumamount = new TaskDoneByMaximumAmount();
+                    taskdonebymaximumamount.tasks();
+                    break;
+                case 12:
+                    RegexClass.CustomMessageFirstNameRepalceMent();
+                    RegexClass.CustomMessageFullNameRepalceMent();
+                    RegexClass.CustomMessagePhoneNumberRepalceMent();
+                    RegexClass.CustomMessagedateRepalceMent();
+                    break;
+
+
+
+
             }
-            Console.ReadKey();
+
         }
     }
 }
-
-//UC-12
-//12.Customize Message Demonstration using String Function and RegEx
-//a. Desc -> Read in the following message: Hello << name >>, We have your full
-//name as <<full name>> in our system. your contact number is 91-xxxxxxxxxx.
-//Please, let us know in case of any clarification Thank you BridgeLabz 01/01/2016.
-//Use Regex to replace name, full name, Mobile#, and Date with proper value.
-//b. I/P -> read in the Message
-//c. Logic -> Use Regex to do the following
-//i. Replace <<name>> by first name of the user ( assume you are the user)
-//ii.replace << full name >> by user full name.
-//iii. replace any occurance of mobile number that should be in format
-//91-xxxxxxxxxx by your contact number.
-//iv. replace any date in the format XX/XX/XXXX by current date.
-//d. O/P -> Print the Modified Message.
-
-//RESULT
-//Hello Shivaraj,
-
-//We have your full name as Shivaraj Krishnamurthy in our system. Your contact number is 8618199771.
-//Please let us know in case of any clarification.
-
-//Thank you
-
-
-//BridgeLabz
-//26-02-2022.
-
-
-////Task - 1 overshoots its deadline 2 by 13
-
-////Task -2 overshoots its deadline 3 by 37
-
-////Task -3 overshoots its deadline 1 by 47
